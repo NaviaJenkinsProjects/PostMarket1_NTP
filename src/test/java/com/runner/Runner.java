@@ -11,9 +11,7 @@ import com.baseclass.BaseClass;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		
     features = "src/test/java/com/feature/PostMarketTesting_Nine_Fifteen.feature",
-    
     glue = {"com.stepdefinition"},
     plugin = {
         "pretty",

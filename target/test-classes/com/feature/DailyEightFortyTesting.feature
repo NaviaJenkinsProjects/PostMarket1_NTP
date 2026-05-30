@@ -23,7 +23,7 @@ Scenario: AMO Orders All Stock and Featue & Options
     
     
     
-Scenario: Add and Remove Any Script and Verify
+Scenario: Script Add/Remove and Verify
     When Navigate to home page
     And User click the search box
     And User Search any "SWIGGY-EQ" Script
@@ -38,7 +38,6 @@ Scenario: Payin add money in navia
     When Navigate to home page
     And User Click The Withdraw button 
 
-    Scenario: Payin add money in navia 
        
     When Navigate to home page
     And User Click Add Money
@@ -47,7 +46,7 @@ Scenario: Payin add money in navia
     And User Enter UPI/ID/Mobile Number and click pay now
     
     
-    Scenario: User Check The Mutual Fund -  UPI Payment - functionality
+    Scenario: Mutual Fund -  UPI Payment - functionality
     
     When Navigate to home page
     And User MouseOver Dashboard and Click Mutual Funds   
@@ -57,7 +56,7 @@ Scenario: Payin add money in navia
     And User Click enter UPI ID "6374837965@ptsbi" and Click Pay Via UPI
     
     
-    Scenario: Verify the Charts Changes in Different Minutes and Days
+    Scenario: NIFTY 50 Charts Changes in Different Minutes and Days
     When Navigate to home page
     And User Click the Watch List
     And User Select scrip "S&P BSE SENSEX"
@@ -67,7 +66,7 @@ Scenario: Payin add money in navia
     And User Choose Candle "candle"
     And User Check the one Minute and one Day Chart
     
-    Scenario: Verify the Charts Changes in Different Minutes and Days
+    Scenario: SENSEX Charts Changes in Different Minutes and Days
     When Navigate to home page
     And User Click the Watch List
     And User Select scrip "S&P BSE SENSEX"
@@ -78,7 +77,7 @@ Scenario: Payin add money in navia
     And User Check the one Minute and one Day Chart
     
     
-Scenario: Verify the Charts Changes in Different Minutes and Days
+Scenario: NSE/BSE Charts Changes in Different Minutes and Days
     When Navigate to home page
     #And User Choose "PreMarket" the Market WatchList
     And User Select The "ICICIBANK-A" Stock or F&O to Chart

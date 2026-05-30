@@ -1559,7 +1559,7 @@ public class Navia_Login extends BaseClass {
 		
 		driver.findElement(By.xpath("//div[@class='funds_show']")).click();
 		
-		
+		Thread.sleep(1000);
 
 		driver.findElement(By.xpath("(//div[@class='nav_btns']//child::button[text()='Withdraw'])[1]")).click();
 		Thread.sleep(4000);

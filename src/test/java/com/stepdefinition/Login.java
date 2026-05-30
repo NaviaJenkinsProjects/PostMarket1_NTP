@@ -70,13 +70,23 @@ public class Login extends BaseClass {
 		
 		 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-		WebElement element = driver
-				.findElement(By.xpath("(//div[@class='header-left']//descendant::span[@class='ind_syml'])[1]"));
+		 try {
+			
+			 WebElement element = driver
+						.findElement(By.xpath("(//div[@class='header-left']//descendant::span[@class='ind_syml'])[1]"));
+				Thread.sleep(1000);
+				Actions f=new Actions(driver);
+				f.moveToElement(element).perform();
+				Thread.sleep(1000);
+				f.click(element).perform();
+				
+		} catch (Exception e) {
+			
+			driver.findElement(By.xpath("(//div[@class='header-left']//descendant::span[@class='ind_syml'])[1]"))
+			.click();
+		}
 		
-		Actions f=new Actions(driver);
-		f.moveToElement(element).perform();
-		f.click(element).perform();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		
 	}
 
@@ -698,23 +708,43 @@ public class Login extends BaseClass {
 
 	@When("User Click Add Money")
 	public void user_click_add_money() throws InterruptedException {
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 
-		WebElement element = driver.findElement(
-				By.xpath("//button[@data-dhx-id='btn_addmoney']"));
-		element.click();
+		try {
+			
+			Actions d=new Actions(driver);
+			WebElement element = driver.findElement(By.xpath("//button[@data-dhx-id='btn_addmoney']"));
+			Thread.sleep(1000);
+			d.moveToElement(element).perform();
+			Thread.sleep(1000);
+			d.doubleClick(element).perform();
 
+			
+		} catch (Exception e) {
+			Thread.sleep(1000);
+			WebElement element = driver.findElement(By.xpath("//button[@data-dhx-id='btn_addmoney']//child::span"));
+			 JavascriptExecutor js = (JavascriptExecutor) driver;
+		       js.executeScript("arguments[0].click();", element);
+
+		}
+		
+		
+
+		Thread.sleep(2000);
+		
 	}
 
 	@When("User enter money in amount to add")
 	public void user_enter_money_in_amount_to_add() throws InterruptedException {
 		Thread.sleep(2000);
 
+//		driver.switchTo().defaultContent();
+//		
 		WebElement addMoneyFrame = driver.findElement(By.xpath("//iframe[@class='iframe_window']"));
 		driver.switchTo().frame(addMoneyFrame);
-
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("//input[@placeholder='Enter Amount']")).click();
-
+		Thread.sleep(1000);
 		WebElement enterAmount = driver.findElement(By.xpath("//input[@placeholder='Enter Amount']"));
 		enterAmount.clear();
 		Thread.sleep(1000);
@@ -724,7 +754,7 @@ public class Login extends BaseClass {
 		Thread.sleep(1000);
 
 		driver.findElement(By.xpath("//input[@id='deposit_amount']")).click();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		driver.switchTo().defaultContent();
 	}
