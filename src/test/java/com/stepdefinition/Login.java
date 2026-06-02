@@ -616,7 +616,7 @@ public class Login extends BaseClass {
 
 		Thread.sleep(2000);
 
-		driver.findElement(By.xpath("//span[contains(text(),'"+string+"')]//following-sibling::span[@class='symbolsseries']"))
+		driver.findElement(By.xpath("(//span[contains(text(),'"+string+"')]//following-sibling::span[contains(text(),'NFO')])[1]"))
 				.click();
 
 	}
@@ -624,8 +624,18 @@ public class Login extends BaseClass {
 	@When("User Click F&O")
 	public void user_click_f_o() throws InterruptedException {
 		Thread.sleep(2000);
+		
+		
+		try {
+			
+			driver.findElement(By.xpath("//button[@class='s_more md_btn1']")).click();
+			
+		} catch (Exception e) {
+			WebElement element = driver.findElement(By.xpath("//button[@class='s_more md_btn1']"));
+			element.click();
+		}
 
-		driver.findElement(By.xpath("//button[@class='s_more md_btn1']")).click();
+		
 	}
 
 	@When("User Click Cancel button in Ready Made Pop up")
