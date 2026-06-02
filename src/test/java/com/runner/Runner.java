@@ -28,7 +28,6 @@ public class Runner {
     public static void browserLaunch() {
         driver = BaseClass.launchBrowser("Chrome");
     }
-
     @AfterClass
     public static void afterSuite() {
        BaseClass.quitBrowser();
