@@ -850,6 +850,7 @@ public class Navia_NTP extends BaseClass{
 		
 	}
 	
+  
 	@When("User Check The Current Stock to Market WatchList")
 	public void user_check_the_current_stock_to_market_watch_list() throws InterruptedException, AWTException {
 	    
@@ -1164,7 +1165,7 @@ Thread.sleep(2000);
 		
 			Thread.sleep(1000);
 			
-			WebElement fund = driver.findElement(By.xpath("//span[contains(text(),'"+optinsNSE+"')]//ancestor::div[contains(@class,'dhx_widget')]//descendant::a[contains(text(),'NSE')]//child::span"));
+			WebElement fund = driver.findElement(By.xpath("(//span[contains(text(),'"+optinsNSE+"')]//ancestor::div[contains(@class,'dhx_widget')]//descendant::span[@class='sys_vl'])[1]"));
 			String text = fund.getText();
 
 			Thread.sleep(1000);
@@ -1230,107 +1231,8 @@ Thread.sleep(2000);
 				
 				
 			}
-				
-			Thread.sleep(2000);
-			
-			//============================================================
-//			WebElement element3114 = driver.findElement(By.xpath("//input[@id='project-id']"));
-//			element3114.click();
-//			Thread.sleep(1000);
-//			
-//			StringSelection selection2114 = new StringSelection(optinsBSE);
-//            Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection2114, null);
-//
-//            Thread.sleep(1000); // Wait 1 sec to ensure clipboard is ready
-//
-//           // Robot  robot1=new Robot();
-//            robot1.keyPress(KeyEvent.VK_CONTROL);
-//            robot1.keyPress(KeyEvent.VK_V);
-//            robot1.keyRelease(KeyEvent.VK_V);
-//            robot1.keyRelease(KeyEvent.VK_CONTROL);
-//
-//            Thread.sleep(2000);
-//						Thread.sleep(3000);
-//						
-//						Actions s111=new Actions(driver);
-//						WebDriverWait wait1111 = new WebDriverWait(driver, java.time.Duration.ofSeconds(10));
-//						WebElement lement111 = wait1111.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[text()='"+optinsBSE+"']//following-sibling::span[text()='BSE'])[1]")));
-//					//WebElement element = driver.findElement(By.xpath("//span[text()='"+string+"']//following-sibling::span[text()='"+string3+"']"));
-//						Thread.sleep(1000);
-//						s111.moveToElement(lement111).perform();
-//						Thread.sleep(1000);
-//						driver.findElement(By.xpath("//span[text()='"+optinsBSE+"']//following-sibling::span[text()='BSE']")).click();
-//					
-//						Thread.sleep(1000);
-//						
-//						WebElement fund1 = driver.findElement(By.xpath("//span[contains(text(),'"+optinsBSE+"')]//ancestor::div[contains(@class,'dhx_widget')]//descendant::a[contains(text(),'BSE')]//child::span"));
-//						String text1 = fund1.getText();
-//
-//						Thread.sleep(1000);
-//						
-//						double doubleValue1 = Double.parseDouble(text1);
-//
-//						// Convert to integer for rounding
-//						int intValue1 = (int) doubleValue1;
-//
-//						// Round to nearest 50, adjusting based on the fractional part
-//						int roundedValue1;
-//						if (doubleValue1 % 20 > 0) {
-//						    roundedValue1 = ((intValue1 / 20) + 1) * 20; // Round up
-//						} else {
-//						    roundedValue1 = (intValue1 / 20) * 20; // Round down or stay as is
-//						}
-//						
-//						String purple1 = "\u001B[35m";
-//
-//						System.out.println(purple1+"Stock Current Strike Value: " + roundedValue1);
-//					
-//
-//						
-//						Thread.sleep(2000);
-//						driver.findElement(By.xpath("//lable[text()='F&O']//parent::button")).click();
-//						Thread.sleep(3000);
-//						
-//						WebElement lement21 = driver.findElement(By.xpath("//iframe[@class='iframe_window']"));
-//						driver.switchTo().frame(lement21);
-//						
-//						Thread.sleep(3000);
-//						WebElement lement41 = driver.findElement(By.xpath("//p[text()='Please click on a ready-made strategy to load it']"));
-//						String text21 = lement41.getText();
-//						
-//						
-//						Thread.sleep(1000);
-//						if (text21.equalsIgnoreCase("Please click on a ready-made strategy to load it")) {
-//							
-//							Thread.sleep(1000);
-//							driver.findElement(By.xpath("//span[@class='ready_mode_close']")).click();
-//							
-//						} else {
-//							
-//							System.err.println("Ready-made strategy builder Close Button Not Working");
-//
-//						}
-//						
-//						try {
-//							
-//							Thread.sleep(1000);
-//							driver.findElement(By.xpath("(//div[text()='"+roundedValue1+"']//parent::div//descendant::span)[1]")).click();
-//							Thread.sleep(2000);
-//							
-//							driver.switchTo().defaultContent();
-//							
-//							driver.findElement(By.xpath("(//span[text()='Dashboard']//parent::a)[2]")).click();
-//							Thread.sleep(1000);
-//							
-//							driver.findElement(By.xpath("//span[text()='Clear']")).click();
-//							Thread.sleep(1000);
-//							
-//						}catch (Exception e){
-//							
-//							
-//						}
-//			
-	//=======================================================================
+
+	
 			
 						Thread.sleep(5000);
 
@@ -1454,10 +1356,11 @@ Thread.sleep(2000);
 						
 					} catch (Exception e) {
 						
+						Actions a=new Actions(driver);
 						WebElement km = driver.findElement(By.xpath("//iframe[@class='iframe_window']"));
 						driver.switchTo().frame(km);
 						Thread.sleep(2000);
-						Actions a=new Actions(driver);
+						
 						WebElement d = driver.findElement(By.xpath("(//div[text()='"+roundedValue11+"']//parent::div//descendant::span)[1]"));
 						a.moveToElement(d).perform();
 						Thread.sleep(2000);
@@ -1753,21 +1656,11 @@ Thread.sleep(2000);
 						Thread.sleep(500);
 						WebElement element = driver.findElement(By.xpath("//button[contains(@class,'"+string+"')]"));
 						element.click();
-						Thread.sleep(1000);
+						Thread.sleep(500);
 						
 						
-						try {
-							
-							
-							WebElement element2 = driver.findElement(By.xpath("//button[text()='BUY']"));
-							element2.click();
-							
-						} catch (Exception e) {
-							WebElement element2 = driver.findElement(By.xpath("(//button[contains(text(),'BUY')])[1]"));
-							element2.click();
-						}
-						
-						Thread.sleep(1000);
+						WebElement element2 = driver.findElement(By.xpath("//button[text()='BUY']"));
+						element2.click();
 						
 						Thread.sleep(1000);
 						WebElement element21 = driver.findElement(By.xpath("//button[text()='yes']"));
@@ -2937,6 +2830,158 @@ System.out.println("SELL Margin Value : "+sell);
 		Thread.sleep(1000);
 		
 	}
+	
+	@When("User Select The Stock Advisory and close the window")
+	public void user_select_the_stock_advisory_and_close_the_window() throws InterruptedException {
+	   
+		Thread.sleep(1000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
+		try {
+			
+			 Set<String> windowHandles = driver.getWindowHandles();
+		        ArrayList<String> tabs = new ArrayList<>(windowHandles);
+		        
+		        driver.switchTo().window(tabs.get(1));
+		        Thread.sleep(2000);  // Perform actions if needed
+
+			
+			WebElement element = driver.findElement(By.xpath("//span[contains(text(),'Proceed')]//parent::button"));
+			element.click();
+			
+			Thread.sleep(4000);
+			driver.close();
+			
+			 driver.switchTo().window(tabs.get(0));
+			
+		} catch (Exception e) {
+			
+			 Set<String> windowHandles = driver.getWindowHandles();
+		        ArrayList<String> tabs = new ArrayList<>(windowHandles);
+		        
+		        driver.switchTo().window(tabs.get(1));
+		        Thread.sleep(4000);  // Perform actions if needed
+		        
+		        driver.close();
+		        
+		        driver.switchTo().window(tabs.get(0));
+		}
+		
+		
+		Thread.sleep(1000);
+		
+	}
+
+	
+	@When("User Select The Portfolio Health Check and close the window")
+	public void user_select_the_portfolio_health_check_and_close_the_window() throws InterruptedException {
+	    
+		
+		
+		
+		
+	}
+	
+	@When("User Select The Corporate FDs and close the window")
+	public void user_select_the_corporate_f_ds_and_close_the_window() throws InterruptedException {
+	    
+		  
+				Thread.sleep(1000);
+				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+				
+				try {
+					
+					 Set<String> windowHandles = driver.getWindowHandles();
+				        ArrayList<String> tabs = new ArrayList<>(windowHandles);
+				        
+				        driver.switchTo().window(tabs.get(1));
+				        Thread.sleep(2000);  // Perform actions if needed
+
+				    	WebElement element = driver.findElement(By.xpath("//button[contains(text(),'Proceed')]"));
+						element.click();
+				       
+				        try {
+				            new WebDriverWait(driver, Duration.ofSeconds(20)).until(
+				                ExpectedConditions.or(
+				                    ExpectedConditions.visibilityOfElementLocated(
+				                        By.xpath("//button[contains(@aria-label,'home')]")),
+				                    ExpectedConditions.visibilityOfElementLocated(
+				                        By.xpath("//button[contains(text(),'Clear')]")),
+				                    ExpectedConditions.visibilityOfElementLocated(
+				                        By.xpath("//button[contains(text(),'FAQ')]"))
+				                 
+				                ));
+				            System.out.println("Page successful - loaded.");
+				        } catch (Exception e) {
+				            throw new AssertionError("Page Not Loading so Kindly check Manual.", e);
+				        }
+					
+					Thread.sleep(4000);
+					driver.close();
+					
+					 driver.switchTo().window(tabs.get(0));
+					
+				} catch (Exception e) {
+					
+					
+				}
+				
+				
+				Thread.sleep(1000);
+				
+				
+	}
+
+	@When("User Select The Bonds and close the window")
+	public void user_select_the_bonds_and_close_the_window() throws InterruptedException {
+	    
+		Thread.sleep(1000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
+		try {
+		
+		       
+		        Thread.sleep(2000);  // Perform actions if needed
+
+		    	WebElement element = driver.findElement(By.xpath("//div[contains(text(),'Confirm')]"));
+				element.click();
+		       
+				 Thread.sleep(4000);
+				framesHandlingNaviaLogin();
+		        try {
+		            new WebDriverWait(driver, Duration.ofSeconds(40)).until(
+		            		
+		            		
+		            	
+		                ExpectedConditions.or(
+		                    ExpectedConditions.visibilityOfElementLocated(
+		                        By.xpath("//div[@class='header-menu-wrap']")),
+		                    ExpectedConditions.visibilityOfElementLocated(
+		                        By.xpath("//div[@class='sidebar-widget']")),
+		                    ExpectedConditions.visibilityOfElementLocated(
+		                        By.xpath("//a[@class='user-icon']"))
+		                 
+		                ));
+		            System.out.println("Page successful - loaded.");
+		        } catch (Exception e) {
+		            throw new AssertionError("Page Not Loading so Kindly check Manual.", e);
+		        }
+			
+			Thread.sleep(4000);
+			
+			
+		} catch (Exception e) {
+			
+			
+			
+		}
+		
+		driver.switchTo().defaultContent();
+		Thread.sleep(1000);
+		
+	}
+
+	
 	
 	
 	@When("User Open The Current {string} Stike")

@@ -11,7 +11,10 @@ import com.baseclass.BaseClass;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
+		
     features = "src/test/java/com/feature/PostMarketTesting_Nine_Fifteen.feature",
+    
+    
     glue = {"com.stepdefinition"},
     plugin = {
         "pretty",
@@ -28,8 +31,18 @@ public class Runner {
     public static void browserLaunch() {
         driver = BaseClass.launchBrowser("Chrome");
     }
+
     @AfterClass
     public static void afterSuite() {
-       BaseClass.quitBrowser();
+      BaseClass.quitBrowser();
     }
 }
+
+
+
+
+
+
+
+
+
