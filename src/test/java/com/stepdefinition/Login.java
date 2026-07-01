@@ -4813,10 +4813,10 @@ public class Login extends BaseClass {
 		WebElement element2 = driver.findElement(By.xpath("//iframe[contains(@src,'global')]"));
 
 		driver.switchTo().frame(element2);
-		WebElement element = driver.findElement(By.xpath("//li[text()='Global']"));
+		WebElement element = driver.findElement(By.xpath("(//a[contains(text(),'nCoins')])[1]"));
 		String text = element.getText();
 
-		if (text.equalsIgnoreCase("global")) {
+		if (text.equalsIgnoreCase("nCoins")) {
 			System.out.println("Verify the global page loaded Successfully");
 		} else {
 			System.out.println("Verify the global page is Not loaded");
